@@ -10,7 +10,7 @@ public class Main {
 		
 		while (op != 9) {
 			op = Integer.parseInt(JOptionPane.showInputDialog("Welcome to the Networks Controller :D"
-					+ "\n1 - Get Ethernet Adapter name and IPv4 number"
+					+ "\n1 - Get Ethernet Adapter name and IPv4 address"
 					+ "\n2 - Get Ping from a web page of your choice"
 					+ "\n9 - Exit"));
 			
