@@ -1,7 +1,6 @@
 package view;
 
 import javax.swing.JOptionPane;
-
 import controller.NetworksController;
 
 public class Main {
@@ -10,26 +9,23 @@ public class Main {
 		NetworksController nc = new NetworksController();
 		
 		while (op != 9) {
-			op = Integer.parseInt(JOptionPane.showInputDialog("1 - Get Ethernet Adapter and IPv4 \n"
-					+ "2 - Get Ping from a web page \n"
-					+ "9 - Exit"));
+			op = Integer.parseInt(JOptionPane.showInputDialog("Welcome to the Networks Controller :D"
+					+ "\n1 - Get Ethernet Adapter name and IPv4 number"
+					+ "\n2 - Get Ping from a web page of your choice"
+					+ "\n9 - Exit"));
 			
 			switch (op) {
-				case 1: 
-					nc.IP(findOS());
+				case 1:
+					nc.ip(System.getProperty("os.name").toLowerCase());
 					break;
 				case 2:
-					nc.ping(findOS());
+					nc.ping(System.getProperty("os.name").toLowerCase());
 				case 9:
 					System.exit(0);
 				default:
 					JOptionPane.showMessageDialog(null, "This is not a valid option!");
 			}
 		}
-	}
-	
-	private static String findOS() {
-		return(System.getProperty("os.name"));
-	}
-	
+	}	
 }
+	
