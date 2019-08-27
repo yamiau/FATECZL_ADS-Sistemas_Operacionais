@@ -19,7 +19,10 @@ public class Main {
 					nc.ip(System.getProperty("os.name").toLowerCase());
 					break;
 				case 2:
-					nc.ping(System.getProperty("os.name").toLowerCase());
+					String address = JOptionPane.showInputDialog("Which web address would you like to ping?"
+							+ "\nPlease write it down exactly!");
+					int pings = Integer.parseInt(JOptionPane.showInputDialog("How many pings do you want to send?"));
+					nc.ping(System.getProperty("os.name").toLowerCase(), address, pings);
 				case 9:
 					System.exit(0);
 				default:

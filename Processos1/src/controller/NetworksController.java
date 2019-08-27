@@ -11,7 +11,6 @@ import javax.swing.JOptionPane;
 
 public class NetworksController {
 	public void ip(String os) {
-		
 		if (os.contains("win")) {
 			winIP();
 		} else {
@@ -69,20 +68,15 @@ public class NetworksController {
 		}
 	}
 	
-	public void ping(String os) {
-		
-		String address = JOptionPane.showInputDialog("Which web address would you like to ping?"
-				+ "\nPlease write it down exactly!");
-		int pings = Integer.parseInt(JOptionPane.showInputDialog("How many pings do you want to send?"));
-		
+	public void ping(String os, String address, int pings) {
 		if (os.contains("win")) {
-			winPing(pings, address);
+			winPing(address, pings);
 		} else {
-			linPing(pings, address);
+			linPing(address, pings);
 		}
 	}
 	
-	private static void winPing(int pings, String address) {
+	private static void winPing(String address, int pings) {
 		String command = "ping -n "  + pings + " " + address;
 		try {
 			Process proc = Runtime.getRuntime().exec(command);
@@ -112,7 +106,7 @@ public class NetworksController {
 		}
 	}
 	
-	private static void linPing(int pings, String address) {
+	private static void linPing(String address, int pings) {
 		String command = "ping c("  + pings + ") " + address;
 		try {
 			Process proc = Runtime.getRuntime().exec(command);
