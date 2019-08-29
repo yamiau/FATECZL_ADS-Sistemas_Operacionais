@@ -52,13 +52,11 @@ public class NetworksController {
 			String line = br.readLine();
 			
 			while (line != null) {
-				if (line.toLowerCase().contains("ethernet")) {
-					line = br.readLine();
-					line = br.readLine();
+				if (line.toLowerCase().contains("flags")) {
 					String[] filter = line.split(":");
 					System.out.println("Ethernet Adapter: " + filter[1]);
-				} else if (line.toLowerCase().contains("ipv4")) {
-					String[] filter = line.split(":");
+				} else if (line.toLowerCase().contains("inet")) {
+					String[] filter = line.split(" ");
 					System.out.println("IPv4 Address: " + filter[1]);
 				}
 				line = br.readLine();
@@ -95,19 +93,18 @@ public class NetworksController {
 					}
 					
 					String[] filter2 = sb.toString().split("=");
-					System.out.println(filter2[2] + "ms");
 					receivedPings.add(Integer.parseInt(filter2[2]));
 				}
 				line = br.readLine();
 			}
-			pingStats(receivedPings);
+			pingStats(receivedPings, address);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
 	
 	private static void linPing(String address, int pings) {
-		String command = "ping c("  + pings + ") " + address;
+		String command = "ping -c "  + pings + " " + address;
 		try {
 			Process proc = Runtime.getRuntime().exec(command);
 			InputStream is = proc.getInputStream();
@@ -123,20 +120,18 @@ public class NetworksController {
 					for (int i = 0; i < filter1.length -1; i++) {
 						sb.append(filter1[i]);
 					}
-					
 					String[] filter2 = sb.toString().split("=");
-					System.out.println(filter2[2] + "ms");
-					receivedPings.add(Integer.parseInt(filter2[2]));
+					receivedPings.add(Integer.parseInt(filter2[filter2.length]));
 				}
 				line = br.readLine();
 			}
-			pingStats(receivedPings);
+			pingStats(receivedPings, address);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
 	
-	private static void pingStats(List<Integer> receivedPings) {
+	private static void pingStats(List<Integer> receivedPings, String address) {
 		int total = 0;
 		int min = receivedPings.get(0);
 		int max = receivedPings.get(0);
@@ -148,7 +143,8 @@ public class NetworksController {
 				max = i;
 			}
 			total += i;
-		}		
+		}
+		System.out.println("Pings sent to [" + address + "]: " + receivedPings.size());
 		System.out.println("Min time: " + min);
 		System.out.println("Max time: " + max)	;
 		System.out.println("Mean time: " + (total/receivedPings.size()));

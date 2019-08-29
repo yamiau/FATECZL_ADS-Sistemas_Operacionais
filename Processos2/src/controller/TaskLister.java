@@ -24,7 +24,16 @@ public class TaskLister {
 			}
 		} else {
 			try {
-				Process proc = Runtime.getRuntime().exec("ps -A");	
+				Process proc = Runtime.getRuntime().exec("top");
+				InputStream is = proc.getInputStream();
+				InputStreamReader isr = new InputStreamReader(is);
+				BufferedReader br = new BufferedReader(isr);
+				String line = br.readLine();
+				
+				while (line != null) {
+					System.out.println(line);
+					line = br.readLine();
+				}
 			} catch (IOException el) {
 				el.printStackTrace();
 			}

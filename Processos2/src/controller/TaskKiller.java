@@ -44,7 +44,7 @@ public class TaskKiller {
 			}
 		} catch(NumberFormatException e) {
 			try {
-				Runtime.getRuntime().exec("killall -KILL " + task);
+				Runtime.getRuntime().exec("Taskkill /F /IM " + task);
 			} catch(IOException e2) {
 				e2.printStackTrace();
 			}
