@@ -146,7 +146,7 @@ public class NetworksController {
 		}
 		System.out.println("Pings sent to [" + address + "]: " + receivedPings.size());
 		System.out.println("Min time: " + min);
-		System.out.println("Max time: " + max)	;
+		System.out.println("Max time: " + max);
 		System.out.println("Mean time: " + (total/receivedPings.size()));
 	}
 }

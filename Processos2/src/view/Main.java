@@ -24,7 +24,9 @@ public class Main {
 					break;
 				case 2:
 					TaskKiller tk = new TaskKiller();
-					tk.kill(osf.getOS());
+					String task = JOptionPane.showInputDialog("Enter the IM (Image Name) or PID (Process ID) you want to terminate."
+							+ "\nType it in exactly, please!");
+					tk.kill(osf.getOS(), task);
 					break;
 				case 9:
 					System.exit(0);

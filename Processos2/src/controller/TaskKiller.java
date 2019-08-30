@@ -5,10 +5,7 @@ import java.io.IOException;
 import javax.swing.JOptionPane;
 
 public class TaskKiller {
-	public void kill(String os) {
-		
-		String task = JOptionPane.showInputDialog("Enter the IM (Image Name) or PID (Process ID) you want to terminate."
-				+ "\nType it in exactly, please!");
+	public void kill(String os, String task) {
 		
 		if (os.contains("win")) {
 			winKill(task);
