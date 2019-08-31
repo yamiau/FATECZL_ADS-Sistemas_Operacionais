@@ -54,7 +54,7 @@ public class NetworksController {
 			while (line != null) {
 				if (line.toLowerCase().contains("flags")) {
 					String[] filter = line.split(":");
-					System.out.println("Ethernet Adapter: " + filter[1]);
+					System.out.println("Ethernet Adapter: " + filter[0]);
 				} else if (line.toLowerCase().contains("inet")) {
 					String[] filter = line.split(" ");
 					System.out.println("IPv4 Address: " + filter[1]);
