@@ -24,7 +24,7 @@ public class TaskLister {
 			}
 		} else {
 			try {
-				Process proc = Runtime.getRuntime().exec("top");
+				Process proc = Runtime.getRuntime().exec("ps -e");
 				InputStream is = proc.getInputStream();
 				InputStreamReader isr = new InputStreamReader(is);
 				BufferedReader br = new BufferedReader(isr);

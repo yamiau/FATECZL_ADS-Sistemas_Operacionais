@@ -13,8 +13,10 @@ public class NetworksController {
 	public void ip(String os) {
 		if (os.contains("win")) {
 			winIP();
-		} else {
+		} else if (os.contains("lin")){
 			linIP();
+		} else {
+			JOptionPane.showMessageDialog(null, "Operating System not supported!");
 		}
 	}
 	
@@ -55,9 +57,9 @@ public class NetworksController {
 				if (line.toLowerCase().contains("flags")) {
 					String[] filter = line.split(":");
 					System.out.println("Ethernet Adapter: " + filter[0]);
-				} else if (line.toLowerCase().contains("inet")) {
+				} else if (line.toLowerCase().contains("netmask")) {
 					String[] filter = line.split(" ");
-					System.out.println("IPv4 Address: " + filter[1]);
+					System.out.println("IPv4 Address: " + filter[9]);
 				}
 				line = br.readLine();
 			}	
@@ -69,8 +71,10 @@ public class NetworksController {
 	public void ping(String os, String address, int pings) {
 		if (os.contains("win")) {
 			winPing(address, pings);
-		} else {
+		} else if (os.contains("lin")){
 			linPing(address, pings);
+		} else {
+			JOptionPane.showMessageDialog(null, "Operating System not supported!");
 		}
 	}
 	
@@ -82,7 +86,7 @@ public class NetworksController {
 			InputStreamReader isr = new InputStreamReader(is);
 			BufferedReader br = new BufferedReader(isr);
 			String line = br.readLine();
-			List<Integer> receivedPings = new ArrayList<Integer>();
+			List<Double> receivedPings = new ArrayList<Double>();
 			
 			while (line != null) {
 				if (line.toLowerCase().contains("ttl")) {
@@ -93,7 +97,7 @@ public class NetworksController {
 					}
 					
 					String[] filter2 = sb.toString().split("=");
-					receivedPings.add(Integer.parseInt(filter2[2]));
+					receivedPings.add(Double.parseDouble(filter2[2]));
 				}
 				line = br.readLine();
 			}
@@ -111,7 +115,7 @@ public class NetworksController {
 			InputStreamReader isr = new InputStreamReader(is);
 			BufferedReader br = new BufferedReader(isr);
 			String line = br.readLine();
-			List<Integer> receivedPings = new ArrayList<Integer>();
+			List<Double> receivedPings = new ArrayList<Double>();
 			
 			while (line != null) {
 				if (line.toLowerCase().contains("ttl")) {
@@ -121,7 +125,7 @@ public class NetworksController {
 						sb.append(filter1[i]);
 					}
 					String[] filter2 = sb.toString().split("=");
-					receivedPings.add(Integer.parseInt(filter2[filter2.length]));
+					receivedPings.add(Double.parseDouble(filter2[filter2.length]));
 				}
 				line = br.readLine();
 			}
@@ -131,12 +135,12 @@ public class NetworksController {
 		}
 	}
 	
-	private static void pingStats(List<Integer> receivedPings, String address) {
-		int total = 0;
-		int min = receivedPings.get(0);
-		int max = receivedPings.get(0);
+	private static void pingStats(List<Double> receivedPings, String address) {
+		double total = 0;
+		double min = receivedPings.get(0);
+		double max = receivedPings.get(0);
 		
-		for (int i : receivedPings) {
+		for (double i : receivedPings) {
 			if (i < min){
 				min = i;
 			} else if (i > max){

@@ -9,8 +9,10 @@ public class TaskKiller {
 		
 		if (os.contains("win")) {
 			winKill(task);
-		} else {
+		} else if (os.contains("lin")){
 			linKill(task);
+		} else {
+			JOptionPane.showMessageDialog(null, "Operating System not supported!");
 		}
 	}
 	

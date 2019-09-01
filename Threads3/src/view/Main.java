@@ -2,15 +2,15 @@ package view;
 
 import javax.swing.JOptionPane;
 import controller.Frog;
-import controller.Track;
+import controller.Race;
 
 public class Main {
 	public static void main(String[] args) {
-		Track track = new Track();
-		track.setLength(setTrackLength());
+		Race race = new Race();
+		race.setLength(setTrackLength());
 		
 		for (int i = 1; i < 4; i++) {
-			Thread frog = new Frog(i, track.getLength());
+			Thread frog = new Frog(i, race);
 		}
 	}
 	
