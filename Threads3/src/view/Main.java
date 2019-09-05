@@ -11,6 +11,7 @@ public class Main {
 		
 		for (int i = 1; i < 4; i++) {
 			Thread frog = new Frog(i, race);
+			frog.start();
 		}
 	}
 	
