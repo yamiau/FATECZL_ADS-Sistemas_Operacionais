@@ -27,7 +27,7 @@ public class Randomizer extends Thread{
 	private void randomize(SlotMachine frame, JTextField slot) {
 		SecureRandom random = new SecureRandom();
 		int roller = 0;
-		int control = (random.nextInt(100) + 100);
+		int control = (random.nextInt(100) + 80);
 		while (roller <= control) {
 			int generated = (random.nextInt(7) + 1);
 			slot.setText(Integer.toString(generated));
@@ -39,6 +39,6 @@ public class Randomizer extends Thread{
 			this.value = generated;
 			roller++;
 		}
-		frame.result(value);
+		SlotMachine.result(value);
 	}
 }

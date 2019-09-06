@@ -14,14 +14,9 @@ public class SlotController implements ActionListener{
 	private JTextField[] slots;
 
 	
-	public SlotController(SlotMachine frame, JTextField slot0, JTextField slot1, JTextField slot2) {
+	public SlotController(SlotMachine frame, JTextField[] slots) {
 		this.frame = frame;
-		this.slots[0] = new JTextField();
-		this.slots[0] = slot0;
-		this.slots[1] = new JTextField();
-		this.slots[1] = slot1;
-		this.slots[2] = new JTextField();
-		this.slots[2] = slot2;
+		this.slots = slots;
 	}
 	
 	@Override
