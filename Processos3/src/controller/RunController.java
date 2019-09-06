@@ -4,22 +4,22 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.io.IOException;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 public class RunController implements ActionListener {
 	
-	private JFrame frame;
+
 	private JTextField input;
 	
-	public RunController(JFrame frame, JTextField input) {
-		this.frame = frame;
+	public RunController(JTextField input) {
 		this.input = input;
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		StringBuffer sb = new StringBuffer();
-		sb.append("cmd.exe /c " + input.getText());
+		StringBuffer sb = new StringBuffer(checkOS());
+		sb.append(input.getText());
 		callProcess(sb.toString());
 		input.setText(null);
 	}
@@ -30,5 +30,16 @@ public class RunController implements ActionListener {
 		} catch (IOException e) {
 			System.out.println(e.getMessage());
 		}
+	}
+	
+	private String checkOS() { 
+		if (System.getProperty("os.name").toLowerCase().contains("win")) {
+			return "cmd.exe /c start ";
+		} else if (System.getProperty("os.name").toLowerCase().contains("lin")) {
+			return "";
+		} else {
+			JOptionPane.showMessageDialog(null, "Operating System not supported!");
+		}
+		return(null);
 	}
 }

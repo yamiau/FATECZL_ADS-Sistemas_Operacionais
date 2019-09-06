@@ -50,7 +50,7 @@ public class Window extends JFrame {
 		
 		JButton btnRun = new JButton("Run");
 		btnRun.setBounds(15, 120, 90, 25);
-		RunController rc = new RunController(this, TextInput);
+		RunController rc = new RunController(TextInput);
 		btnRun.addActionListener(rc);
 		TextInput.addActionListener(rc);
 		contentPane.add(btnRun);
