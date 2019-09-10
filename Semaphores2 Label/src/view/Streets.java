@@ -44,32 +44,32 @@ public class Streets extends JFrame {
 		
 		GenerateIcon icon = new GenerateIcon();
 		Semaphore semaphore = new Semaphore(1);
-		
+		ReSetter rs = new ReSetter();
 		
 		JLabel carWE = new JLabel("");
-		carWE.setBounds(-100, 280, 130, 110);
+		carWE.setBounds(rs.setInitialPosition(0));
 		carWE.setIcon(new ImageIcon(icon.generateIcon(carWE)));
 		contentPane.add(carWE);
 		
 		JLabel carNS = new JLabel("");
-		carNS.setBounds(194, -100, 130, 110);
+		carNS.setBounds(rs.setInitialPosition(1));
 		carNS.setIcon(new ImageIcon(icon.generateIcon(carNS)));
 		contentPane.add(carNS);
 		
 		JLabel carEW = new JLabel("");
-		carEW.setBounds(550, 170, 130, 110);
+		carEW.setBounds(rs.setInitialPosition(2));
 		carEW.setIcon(new ImageIcon(icon.generateIcon(carEW)));
 		contentPane.add(carEW);
 		
 		JLabel carSN = new JLabel("");
-		carSN.setBounds(310, 550, 130, 110);
+		carSN.setBounds(rs.setInitialPosition(3));
 		carSN.setIcon(new ImageIcon(icon.generateIcon(carSN)));
 		contentPane.add(carSN);
 		
 		
 		JLabel intersection = new JLabel("");
 		intersection.setIcon(new ImageIcon(System.getProperty("user.dir") +"\\img\\intersection.png"));
-		intersection.setBounds(195, 187, 192, 191);
+		intersection.setBounds(195, 188, 210, 193);
 		contentPane.add(intersection);
 		
 		JLabel run = new JLabel("");

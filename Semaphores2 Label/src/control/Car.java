@@ -1,14 +1,13 @@
 package control;
 
 import java.io.File;
+import view.ReSetter;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.security.SecureRandom;
 import java.util.concurrent.Semaphore;
 import javax.swing.JLabel;
-
-import com.sun.javafx.geom.Rectangle;
 
 import sun.audio.AudioPlayer;
 import sun.audio.AudioStream;
@@ -82,6 +81,36 @@ public class Car extends Thread{
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		SecureRandom random = new SecureRandom();
+		java.awt.Rectangle r1 = icon.getBounds();
+		java.awt.Rectangle r2 = intersection.getBounds();
+		
+		while (r1.intersects(r2)) {
+			int displacement = random.nextInt(15);
+			switch(direction) {
+			case 0:
+				r1.x += displacement;
+				icon.setBounds(r1); 
+				break;
+			case 1:
+				r1.y += displacement;
+				icon.setBounds(r1); 
+				break;
+			case 2:
+				r1.x -= displacement;
+				icon.setBounds(r1); 
+				break;
+			case 3:
+				r1.y -= displacement;
+				icon.setBounds(r1); 
+				break;
+			}
+			try {
+				sleep(50);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 	
 	public boolean collision(int stage) {
@@ -112,6 +141,8 @@ public class Car extends Thread{
 			}
 		} else {
 			if (r1.intersects(r3)) {
+				ReSetter rs = new ReSetter();
+				rs.counter(icon, direction);
 				return true;
 			} else {
 				return false;
