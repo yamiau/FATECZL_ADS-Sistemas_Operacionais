@@ -44,7 +44,7 @@ public class Car extends Thread{
 		while (! collision(stage)) {
 			SecureRandom random = new SecureRandom();
 			java.awt.Rectangle position = icon.getBounds();
-			int displacement = random.nextInt(15);
+			int displacement = random.nextInt(20);
 			switch(direction) {
 			case 0:
 				position.x += displacement;
@@ -64,7 +64,7 @@ public class Car extends Thread{
 				break;
 			}
 			try {
-				sleep(50);
+				sleep(40);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
@@ -86,7 +86,7 @@ public class Car extends Thread{
 		java.awt.Rectangle r2 = intersection.getBounds();
 		
 		while (r1.intersects(r2)) {
-			int displacement = random.nextInt(15);
+			int displacement = random.nextInt(10);
 			switch(direction) {
 			case 0:
 				r1.x += displacement;
@@ -106,7 +106,7 @@ public class Car extends Thread{
 				break;
 			}
 			try {
-				sleep(50);
+				sleep(random.nextInt(30) + 10);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
@@ -142,7 +142,7 @@ public class Car extends Thread{
 		} else {
 			if (r1.intersects(r3)) {
 				ReSetter rs = new ReSetter();
-				rs.counter(icon, direction);
+				rs.reset(icon, direction);
 				return true;
 			} else {
 				return false;

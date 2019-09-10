@@ -5,6 +5,8 @@ import java.awt.Rectangle;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
+import control.GenerateIcon;
+
 public class ReSetter extends Thread{
 
 	private static JLabel run;
@@ -34,12 +36,14 @@ public class ReSetter extends Thread{
 		return null;
 	}
 	
-	public void counter(JLabel icon, int direction){
+	public void reset(JLabel icon, int direction){
 		counter++;
 		icon.setBounds(setInitialPosition(direction));
+		GenerateIcon gi = new GenerateIcon();
+		icon.setIcon(new ImageIcon(gi.generateIcon(icon)));
 		if (counter > 3) {
 		try {
-			sleep(600);
+			sleep(500);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
