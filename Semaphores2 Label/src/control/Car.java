@@ -40,7 +40,7 @@ public class Car extends Thread{
 		move(2);
 	}
 	
-	public void move(int stage) {
+	private void move(int stage) {
 		while (! collision(stage)) {
 			SecureRandom random = new SecureRandom();
 			java.awt.Rectangle position = icon.getBounds();
@@ -71,7 +71,7 @@ public class Car extends Thread{
 		}
 	}
 	
-	public void pass() {
+	private void pass() {
 		String filepath = System.getProperty("user.dir") + "\\snd\\honk.wav";
 		InputStream is;
 		try {
@@ -113,7 +113,7 @@ public class Car extends Thread{
 		}
 	}
 	
-	public boolean collision(int stage) {
+	private boolean collision(int stage) {
 		java.awt.Rectangle r1 = icon.getBounds();
 		java.awt.Rectangle r2 = intersection.getBounds();
 		java.awt.Rectangle r3 = intersection.getBounds();

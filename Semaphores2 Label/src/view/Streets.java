@@ -16,6 +16,7 @@ import control.GenerateIcon;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import java.awt.Toolkit;
 
 public class Streets extends JFrame {
 
@@ -35,6 +36,7 @@ public class Streets extends JFrame {
 	}
 
 	public Streets() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(System.getProperty("user.dir") +"\\img\\icon.png"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(200, 100, 600, 600);
 		contentPane = new JPanel();
