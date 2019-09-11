@@ -17,6 +17,7 @@ import java.awt.Font;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 
@@ -99,6 +100,7 @@ public class SlotMachine extends JFrame {
 				sound(false);
 				JOptionPane.showMessageDialog(null, "What a loser! ;(");
 			}
+			counter = 0;
 		}
 	}
 	
@@ -116,7 +118,7 @@ public class SlotMachine extends JFrame {
 			is = new FileInputStream(new File(filepath.toString()));
 			AudioStream as = new AudioStream(is); 
 			AudioPlayer.player.start(as);
-		} catch (Exception e) {
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
