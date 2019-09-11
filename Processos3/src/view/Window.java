@@ -43,6 +43,10 @@ public class Window extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		JLabel lblInsertAnExecutable = new JLabel("Insert an executable command to be run");
+		lblInsertAnExecutable.setBounds(100, 20, 200, 40);
+		contentPane.add(lblInsertAnExecutable);
+		
 		JTextField TextInput = new JTextField();
 		TextInput.setBounds(15, 80, 355, 20);
 		contentPane.add(TextInput);
@@ -66,9 +70,5 @@ public class Window extends JFrame {
 		BrowseController bc = new BrowseController(this, TextInput);
 		btnBrowse.addActionListener(bc);
 		contentPane.add(btnBrowse);
-		
-		JLabel lblInsertAnExecutable = new JLabel("Insert an executable command to be run");
-		lblInsertAnExecutable.setBounds(100, 20, 200, 40);
-		contentPane.add(lblInsertAnExecutable);
 	}
 }
