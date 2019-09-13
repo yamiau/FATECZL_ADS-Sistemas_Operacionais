@@ -2,6 +2,8 @@ package controller;
 
 import java.awt.Rectangle;
 import java.security.SecureRandom;
+
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import view.Track;
 
@@ -13,6 +15,7 @@ public class Racer extends Thread{
 	private JLabel goal;
 	
 	public Racer(Track track, int id, JLabel racer, JLabel goal) {
+		this.track = track;
 		this.id = id;
 		this.racer = racer;
 		this.goal = goal;
@@ -27,10 +30,10 @@ public class Racer extends Thread{
 		SecureRandom random = new SecureRandom();
 		Rectangle pos = racer.getBounds();
 		while (! collision()) {
-			pos.x -= (random.nextInt(20)+20);
+			pos.x -= (random.nextInt(55)+20);
 			racer.setBounds(pos);
 			try {
-				sleep(random.nextInt(20)+20);
+				sleep(random.nextInt(10)+20);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
@@ -51,7 +54,7 @@ public class Racer extends Thread{
 	
 	private void finish() {
 		if (! track.getWinner()) {
-			track.setWinner(id);
+			track.setWinner(racer);
 		}
 	}
 }
