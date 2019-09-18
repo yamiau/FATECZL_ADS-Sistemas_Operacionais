@@ -34,6 +34,7 @@ public class Ticket extends Thread{
 				e.printStackTrace();
 			} finally {
 				validate();
+				semaphore.release();
 			}
 		} else {
 			run();
