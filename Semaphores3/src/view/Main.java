@@ -13,8 +13,8 @@ public class Main {
 		SecureRandom random = new SecureRandom();
 		int trackLength = 400;
 		
-		for (int i = 1; i < racers.length + 1; i++) {
-			for (int j = 1; j < racers[i].length + 1; j++) {
+		for (int i = 0; i < racers.length; i++) {
+			for (int j = 0; j < racers[i].length; j++) {
 				Pilot pilot = new Pilot(i, j, trackLength);
 				pilot.start();				
 			}
