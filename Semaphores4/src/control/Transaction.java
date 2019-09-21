@@ -8,17 +8,16 @@ public class Transaction extends Thread{
 	private int balance;
 	private int type;
 	private int value;
-	private static Semaphore[] semaphore = new Semaphore[2]; {
-		for (Semaphore s : semaphore) {
-			s = new Semaphore(1);
-		}
-	}
+	private static Semaphore[] semaphore = new Semaphore[2];
 		
 	public Transaction(int code, int balance, int type, int value) {
 		this.code = code;
 		this.balance = balance;
 		this.type = type + 1;
 		this.value = value;
+		for (int i = 0; i < semaphore.length; i++) {
+			semaphore[i] = new Semaphore(1);
+		}
 	}
 	
 	@Override
