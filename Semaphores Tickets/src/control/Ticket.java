@@ -21,23 +21,25 @@ public class Ticket extends Thread{
 	
 	@Override
 	public void run() {
-		logIn();
-		if (advance) {
-			purchase();			
-		} else {
-			run();
-		}
-		if (advance) {
-			try {
-				semaphore.acquire();
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			} finally {
-				validate();
-				semaphore.release();
+		while (available_tickets > 0) {
+			logIn();
+			if (advance) {
+				purchase();			
+			} else {
+				run();
 			}
-		} else {
-			run();
+			if (advance) {
+				try {
+					semaphore.acquire();
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				} finally {
+					validate();
+					semaphore.release();
+				}
+			} else {
+				run();
+			}		
 		}
 	}
 	
