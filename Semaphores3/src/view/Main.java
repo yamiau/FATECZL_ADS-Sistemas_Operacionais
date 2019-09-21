@@ -1,8 +1,6 @@
 package view;
 
 import java.security.SecureRandom;
-import java.util.concurrent.Semaphore;
-
 import control.Pilot;
 
 public class Main {

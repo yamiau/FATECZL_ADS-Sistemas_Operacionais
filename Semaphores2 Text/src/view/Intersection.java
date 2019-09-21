@@ -1,7 +1,6 @@
 package view;
 
 import java.util.concurrent.Semaphore;
-
 import controller.Car;
 
 public class Intersection {

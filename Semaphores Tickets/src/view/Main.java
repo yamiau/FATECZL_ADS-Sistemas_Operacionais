@@ -1,6 +1,5 @@
 package view;
 
-
 import control.Ticket;
 
 public class Main {

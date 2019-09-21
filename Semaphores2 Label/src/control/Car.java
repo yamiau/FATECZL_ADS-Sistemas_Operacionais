@@ -8,7 +8,6 @@ import java.io.InputStream;
 import java.security.SecureRandom;
 import java.util.concurrent.Semaphore;
 import javax.swing.JLabel;
-
 import sun.audio.AudioPlayer;
 import sun.audio.AudioStream;
 

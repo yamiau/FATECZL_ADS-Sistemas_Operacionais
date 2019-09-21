@@ -2,8 +2,6 @@ package controller;
 
 import java.awt.Rectangle;
 import java.security.SecureRandom;
-
-import javax.swing.JButton;
 import javax.swing.JLabel;
 import view.Track;
 

@@ -1,28 +1,22 @@
 package view;
 
 import java.awt.EventQueue;
-
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.border.EmptyBorder;
-
-import controller.SlotController;
-import sun.audio.AudioPlayer;
-import sun.audio.AudioStream;
-
 import java.awt.Font;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
-
-import javax.swing.SwingConstants;
+import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+import javax.swing.border.EmptyBorder;
+import controller.SlotController;
+import sun.audio.AudioPlayer;
+import sun.audio.AudioStream;
 
 @SuppressWarnings("serial")
 public class SlotMachine extends JFrame {

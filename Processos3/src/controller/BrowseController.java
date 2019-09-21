@@ -10,11 +10,9 @@ import java.io.File;
 
 public class BrowseController implements ActionListener {
 
-	private JFrame frame;
 	private JTextField input;
 	
-	public BrowseController(JFrame frame, JTextField input) {
-		this.frame = frame;
+	public BrowseController(JTextField input) {
 		this.input = input;
 	}
 	

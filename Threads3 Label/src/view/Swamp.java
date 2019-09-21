@@ -1,27 +1,15 @@
 package view;
 
-import java.awt.Dimension;
 import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-
-import control.PlayController;
-import control.SoundController;
-import sun.audio.AudioPlayer;
-import sun.audio.AudioStream;
-
-import javax.swing.JLabel;
+import java.awt.Toolkit;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-
-import java.awt.Toolkit;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import control.PlayController;
+import control.SoundController;
 
 public class Swamp extends JFrame {
 

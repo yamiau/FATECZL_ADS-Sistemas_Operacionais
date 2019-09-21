@@ -2,20 +2,16 @@ package view;
 
 import java.awt.EventQueue;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
+import controller.BrowseController;
 import controller.CancelController;
 import controller.RunController;
-import controller.BrowseController;
-
-import javax.swing.JTextField;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.SwingConstants;
-import java.awt.Font;
 
 public class Window extends JFrame {
 
@@ -67,7 +63,7 @@ public class Window extends JFrame {
 		
 		JButton btnBrowse = new JButton("Browse");
 		btnBrowse.setBounds(280, 120, 90, 25);
-		BrowseController bc = new BrowseController(this, TextInput);
+		BrowseController bc = new BrowseController(TextInput);
 		btnBrowse.addActionListener(bc);
 		contentPane.add(btnBrowse);
 	}
